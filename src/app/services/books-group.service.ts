@@ -10,10 +10,7 @@ export class BooksGroupService {
 
   constructor() { }
 
-  getOldTestemony() {
-    return this.source.pipe(map(items => items.filter(item => item.biblePart === 'Stari zavet')))
-  }
-  getNewTestemony() {
-    return this.source.pipe(map(items => items.filter(item => item.biblePart === 'Novi zavet')))
+  getBooksGroupBible(){
+    return this.source;
   }
 }
