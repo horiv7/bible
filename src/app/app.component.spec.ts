@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import {  TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
@@ -30,6 +30,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('bible app is running!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Nesto');
   });
+
+  it('should render title in a h1 tag', waitForAsync(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Nesto');
+  }));
 });
