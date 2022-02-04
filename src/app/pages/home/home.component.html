@@ -5,11 +5,11 @@
     <h2>STARI ZAVET</h2>
 </div>
 <div class="list" fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutGap='row wrap 4%'>
-    <app-card-group fxFlex="49" *ngFor="let booksGroup of oldTestemonyBooks" [booksGroup]="booksGroup"></app-card-group>
+    <app-card-group fxFlex="49" *ngFor="let booksGroup of oldTestimonyBooks$ |async" [booksGroup]="booksGroup"></app-card-group>
 </div>
 <div class="subtitle">
     <h2>NOVI ZAVET</h2>
 </div>
 <div class="list" fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutGap='row wrap 4%'>
-    <app-card-group fxFlex="49" *ngFor="let booksGroup of newTestemonyBooks" [booksGroup]="booksGroup"></app-card-group>
+    <app-card-group fxFlex="49" *ngFor="let booksGroup of newTestimonyBooks$ |async" [booksGroup]="booksGroup"></app-card-group>
 </div>
