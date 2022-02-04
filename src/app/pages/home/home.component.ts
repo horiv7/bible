@@ -1,27 +1,21 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { BooksGroup } from 'src/app/models/books-group.model';
-import { BooksGroupService } from 'src/app/services/books-group.service';
+import { BooksService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  oldTestemonyBooks!: BooksGroup[];
-  newTestemonyBooks!: BooksGroup[];
-  private source!: Subscription;
-  constructor(private booksGroupService: BooksGroupService) { }
+export class HomeComponent implements OnInit {
+  oldTestimonyBooks$!: Observable<BooksGroup[]>;
+  newTestimonyBooks$!: Observable<BooksGroup[]>;
+  constructor(private booksService: BooksService) { }
 
   ngOnInit(): void {
-    this.source = this.booksGroupService.getBooksGroupBible().subscribe((x) => {
-      this.oldTestemonyBooks = x.filter(item => item.biblePart === 'Stari zavet')
-      this.newTestemonyBooks = x.filter(item => item.biblePart === 'Novi zavet')
-    }
-    )
+    this.newTestimonyBooks$ = this.booksService.getBooksGroupBible().pipe(map(el => el.filter(item => item.biblePart === 'Novi zavet')))
+    this.oldTestimonyBooks$ = this.booksService.getBooksGroupBible().pipe(map(el => el.filter(item => item.biblePart === 'Stari zavet')))
   }
-  ngOnDestroy(): void {
-    this.source.unsubscribe()
-  }
+
 }

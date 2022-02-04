@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { BooksGroup } from 'src/app/models/books-group.model';
 
 @Component({
@@ -6,12 +6,7 @@ import { BooksGroup } from 'src/app/models/books-group.model';
   templateUrl: './card-group.component.html',
   styleUrls: ['./card-group.component.scss']
 })
-export class CardGroupComponent implements OnInit {
-  @Input() booksGroup:BooksGroup | undefined;
-  img: string | undefined
+export class CardGroupComponent{
+  @Input() booksGroup: BooksGroup | undefined;
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
