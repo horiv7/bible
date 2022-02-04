@@ -1,16 +1,13 @@
-# Bible
+# BibleApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
 
+The project is planned as the **mvp mobile app "Bible"**. It should be transferred to _PWA_ and placed on the _Play Store._
 
+The application has _no data_ other than _a dummy json file_.
 
-
-The project is planned as the **mvp mobile app "Bible"**. It should be transferred to PWA and placed on the Play Store.
-
-The application has no data other than a dummy json file.
-
-The application is made for mobile devices and is **not responsive**.
+The application is made for mobile devices and is _not responsive_.
 
 
 ## Development server
